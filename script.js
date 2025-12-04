@@ -43,7 +43,7 @@ With all my heart,`,
     ],
     
     // Secret password (your special date in DDMM format)
-    secretPassword: "06112024" // Change this to your special date
+    secretPassword: "0611" // Change this to your special date
 };
 
 // Initialize everything when page loads
