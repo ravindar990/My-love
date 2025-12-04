@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Pasandida Aurat 👑 | MafiiYa's Love</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <style>
+        :root {
+            --primary: #ff6b8b;
+            --secondary: #d63384;
+            --accent: #ffafbd;
+            --gold: #ffd700;
+            --dark: #5a3d5c;
+            --light: #fff9fb;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* 3D Hearts Background */
+        #hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .heart-bg {
+            position: absolute;
+            color: rgba(255, 107, 139, 0.2);
+            font-size: 24px;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 107, 139, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+        
+        .hero h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5rem;
+            background: linear-gradient(45deg, var(--gold), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+            to { text-shadow: 0 0 20px rgba(255, 107, 139, 0.8), 0 0 30px rgba(255, 107, 139, 0.4); }
+        }
+        
+        .typing-container {
+            min-height: 60px;
+            margin: 20px auto;
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+        
+        .typed-text {
+            border-right: 3px solid var(--primary);
+            padding-right: 5px;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { border-color: transparent; }
+            50% { border-color: var(--primary); }
+        }
+        
+        /* Love Letter */
+        .love-letter {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 40px;
+            margin: 40px auto;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            max-width: 800px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .love-letter::before {
+            content: '✉️';
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+        
+        .letter-content {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            line-height: 1.8;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .signature {
+            text-align: right;
+            margin-top: 40px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: var(--gold);
+        }
+        
+        /* Photo Gallery */
+        .gallery-section {
+            padding: 60px 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+        
+        .swiper {
+            width: 100%;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        
+        .swiper-slide {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .swiper-slide:hover img {
+            transform: scale(1.1);
+        }
+        
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .swiper-slide:hover .photo-caption {
+            transform: translateY(0);
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 20px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--gold), var(--primary));
+        }
+        
+        .timeline-item {
+            margin: 40px 0;
+            position: relative;
+            width: 45%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            margin-left: auto;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .timeline-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            position: absolute;
+            top: 20px;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-icon {
+            left: -60px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-icon {
+            right: -60px;
+        }
+        
+        /* Counter */
+        .counter-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 60px auto;
+            flex-wrap: wrap;
+        }
+        
+        .counter-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            min-width: 150px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .counter-box:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 107, 139, 0.2);
+        }
+        
+        .counter-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--gold), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1;
+        }
+        
+        .counter-label {
+            font-size: 1rem;
+            color: var(--accent);
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Secret Section */
+        .secret-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 30px;
+            margin: 60px auto;
+            max-width: 800px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .secret-section::before {
+            content: '🔐';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+        
+        .password-input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            padding: 15px 30px;
+            color: white;
+            font-size: 1.2rem;
+            width: 300px;
+            margin: 20px auto;
+            display: block;
+            text-align: center;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .password-input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+        
+        .unlock-btn {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .unlock-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(214, 51, 132, 0.4);
+        }
+        
+        .hidden-content {
+            display: none;
+            margin-top: 40px;
+            animation: fadeIn 1s ease;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--accent);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 60px;
+        }
+        
+        .heartbeat {
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+            color: var(--primary);
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .letter-content { font-size: 1.4rem; }
+            .section-title { font-size: 2.5rem; }
+            .swiper { height: 300px; }
+            .timeline::before { left: 30px; }
+            .timeline-item { width: calc(100% - 80px); margin-left: 80px; }
+            .timeline-item:nth-child(odd) { margin-left: 80px; }
+            .timeline-icon { left: -60px !important; right: auto !important; }
+            .counter-box { min-width: 120px; padding: 20px; }
+            .counter-number { font-size: 2.5rem; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 3D Hearts Background -->
+    <div id="hearts-bg"></div>
+    
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>For My Pasandida Aurat 😘 </h1>
+            <div class="typing-container" id="typing-text"></div>
+            <p style="color: var(--accent); font-size: 1.2rem; margin-top: 20px;">
+                Every moment with you feels like a beautiful dream
+            </p>
+        </section>
+        
+        <!-- Love Letter -->
+        <section class="love-letter">
+            <div class="letter-content" id="love-letter">
+                <!-- Letter content will be typed here -->
+            </div>
+            <div class="signature">Forever Yours,<br>MafiiYa❤️</div>
+        </section>
+        
+        <!-- Photo Gallery -->
+        <section class="gallery-section">
+            <h2 class="section-title">Our Journey Together</h2>
+            <div class="swiper">
+                <div class="swiper-wrapper" id="gallery-container">
+                    <!-- Photos will be loaded here -->
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </section>
+        
+        <!-- Timeline -->
+        <section class="timeline-section">
+            <h2 class="section-title">Our Love Timeline</h2>
+            <div class="timeline" id="timeline-container">
+                <!-- Timeline items will be added here -->
+            </div>
+        </section>
+        
+        <!-- Counter -->
+        <section class="counter-section">
+            <h2 class="section-title">Counting Every Beautiful Moment</h2>
+            <div class="counter-container">
+                <div class="counter-box">
+                    <div class="counter-number" id="days-count">0</div>
+                    <div class="counter-label">Days Together</div>
+                </div>
+                <div class="counter-box">
+                    <div class="counter-number" id="hours-count">0</div>
+                    <div class="counter-label">Hours of Love</div>
+                </div>
+                <div class="counter-box">
+                    <div class="counter-number" id="minutes-count">0</div>
+                    <div class="counter-label">Minutes of Joy</div>
+                </div>
+                <div class="counter-box">
+                    <div class="counter-number" id="seconds-count">0</div>
+                    <div class="counter-label">Seconds of Bliss</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Secret Section -->
+        <section class="secret-section">
+            <h2 class="section-title">A Special Secret 💌</h2>
+            <p>Enter our special date (DDMM) to unlock a surprise!</p>
+            <input type="password" class="password-input" id="password-input" placeholder="e.g., 1408" maxlength="4">
+            <button class="unlock-btn" id="unlock-btn">
+                <i class="fas fa-lock-open"></i> Unlock My Heart
+            </button>
+            <div class="hidden-content" id="hidden-content">
+                <h3 style="color: var(--gold); font-size: 2rem; margin-bottom: 20px;">You Found It! 🎁</h3>
+                <p style="font-size: 1.3rem; line-height: 1.8; margin-bottom: 30px;">
+                    My love for you grows stronger every single day.<br>
+                    I can't wait to create more beautiful memories with you.<br>
+                    <strong>Next surprise: This weekend, just you and me! ❤️</strong>
+                </p>
+                <div style="font-size: 4rem;">💝🎉✨</div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Made with <span class="heartbeat">❤️</span> by Mafiiya for the most amazing person in the universe</p>
+            <p style="margin-top: 10px; opacity: 0.7;">© 2025 | Every second with you is precious</p>
+        </footer>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
